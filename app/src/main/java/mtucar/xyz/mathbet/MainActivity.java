@@ -1,0 +1,27 @@
+package mtucar.xyz.mathbet;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button buttonBet;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        buttonBet = findViewById(R.id.buttonBet);
+        buttonBet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+}
