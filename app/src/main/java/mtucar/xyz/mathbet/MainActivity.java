@@ -9,6 +9,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button buttonBet;
+    Button buttonPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, QuestionListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonPlayer = findViewById(R.id.buttonPlayer);
+        buttonPlayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PlayerListActivity.class);
                 startActivity(intent);
             }
         });

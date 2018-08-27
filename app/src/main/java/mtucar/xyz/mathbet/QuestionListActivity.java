@@ -10,7 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.List;
+
+import mtucar.xyz.mathbet.classes.Player;
 import mtucar.xyz.mathbet.classes.QuestionSet;
+import mtucar.xyz.mathbet.data.PlayerData;
 
 public class QuestionListActivity extends AppCompatActivity {
 
@@ -40,5 +44,7 @@ public class QuestionListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }
