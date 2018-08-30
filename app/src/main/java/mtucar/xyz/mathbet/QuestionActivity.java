@@ -1,10 +1,12 @@
 package mtucar.xyz.mathbet;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,9 +23,12 @@ import mtucar.xyz.mathbet.classes.QuestionSet;
 
 public class QuestionActivity extends AppCompatActivity {
 
+    private static int counter = 1;
     TextView textViewFirst;
     TextView textViewSecond;
     TextView textViewOperation;
+    TextView textViewTime;
+    TextView textViewQuestion;
     Button button1;
     Button button2;
     Button button3;
@@ -32,6 +37,8 @@ public class QuestionActivity extends AppCompatActivity {
     Button button6;
     QuestionSet qSet;
     Question question;
+    ProgressBar progressBar;
+    CountDownTimer countDownTimer;
 
 
     @Override
@@ -42,6 +49,9 @@ public class QuestionActivity extends AppCompatActivity {
         textViewFirst = findViewById(R.id.firstNumber);
         textViewSecond = findViewById(R.id.secondNumber);
         textViewOperation = findViewById(R.id.calculationSign);
+        textViewTime = findViewById(R.id.time_text);
+        textViewQuestion = findViewById(R.id.question_text);
+        progressBar =findViewById(R.id.progressBar);
         button1 = findViewById(R.id.answer1);
         button2 = findViewById(R.id.answer2);
         button3 = findViewById(R.id.answer3);
@@ -51,15 +61,43 @@ public class QuestionActivity extends AppCompatActivity {
 
 
         qSet = getIntent().getParcelableExtra("questionSet");
+        progressBar.setMax(qSet.getNumberOfQuestions());
+        progressBar.setProgress(0);
+        textViewQuestion.setText(counter+"/"+qSet.getNumberOfQuestions());
 
         createQuestion();
+
+        countDownTimer = new CountDownTimer(qSet.getTime()*1000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                textViewTime.setText(""+millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                Toast.makeText(QuestionActivity.this, "Time is up!", Toast.LENGTH_SHORT).show();
+            }
+        }.start();
+
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Integer.parseInt(button1.getText().toString())==question.getAnswer()){
+                if((Integer.parseInt(button1.getText().toString())==question.getAnswer()) && (qSet.getNumberOfQuestions()>counter) ){
                     createQuestion();
-                }else{Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                    ++counter;
+                    progressBar.setProgress(counter);
+                    textViewQuestion.setText(counter+"/"+qSet.getNumberOfQuestions());
+                }else if((Integer.parseInt(button1.getText().toString())==question.getAnswer()) && (qSet.getNumberOfQuestions()==counter+1)){
+                    Toast.makeText(QuestionActivity.this, "Well Done!", Toast.LENGTH_LONG).show();
+                    counter=1;
+                    countDownTimer.cancel();
+                    Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    counter=1;
+                    countDownTimer.cancel();
+                    Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
                     startActivity(intent);}
             }
         });
@@ -67,19 +105,44 @@ public class QuestionActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Integer.parseInt(button2.getText().toString())==question.getAnswer()){
+                if((Integer.parseInt(button2.getText().toString())==question.getAnswer()) && (qSet.getNumberOfQuestions()>counter) ){
                     createQuestion();
-                }else{Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                    ++counter;
+                    progressBar.setProgress(counter);
+                    textViewQuestion.setText(counter+"/"+qSet.getNumberOfQuestions());
+                }else if((Integer.parseInt(button2.getText().toString())==question.getAnswer()) && (qSet.getNumberOfQuestions()==counter+1)){
+                    Toast.makeText(QuestionActivity.this, "Well Done!", Toast.LENGTH_LONG).show();
+                    counter=1;
+                    countDownTimer.cancel();
+                    Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    counter=1;
+                    countDownTimer.cancel();
+                    Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
                     startActivity(intent);}
             }
         });
-
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Integer.parseInt(button3.getText().toString())==question.getAnswer()){
+                if((Integer.parseInt(button3.getText().toString())==question.getAnswer()) && (qSet.getNumberOfQuestions()>counter) ){
                     createQuestion();
-                }else{Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                    ++counter;
+                    progressBar.setProgress(counter);
+                    textViewQuestion.setText(counter+"/"+qSet.getNumberOfQuestions());
+                }else if((Integer.parseInt(button3.getText().toString())==question.getAnswer()) && (qSet.getNumberOfQuestions()==counter+1)){
+                    Toast.makeText(QuestionActivity.this, "Well Done!", Toast.LENGTH_LONG).show();
+                    counter=1;
+                    countDownTimer.cancel();
+                    Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    counter=1;
+                    countDownTimer.cancel();
+                    Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
                     startActivity(intent);}
             }
         });
@@ -87,9 +150,22 @@ public class QuestionActivity extends AppCompatActivity {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Integer.parseInt(button4.getText().toString())==question.getAnswer()){
+                if((Integer.parseInt(button4.getText().toString())==question.getAnswer()) && (qSet.getNumberOfQuestions()>counter) ){
                     createQuestion();
-                }else{Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                    ++counter;
+                    progressBar.setProgress(counter);
+                    textViewQuestion.setText(counter+"/"+qSet.getNumberOfQuestions());
+                }else if((Integer.parseInt(button4.getText().toString())==question.getAnswer()) && (qSet.getNumberOfQuestions()==counter+1)){
+                    Toast.makeText(QuestionActivity.this, "Well Done!", Toast.LENGTH_LONG).show();
+                    counter=1;
+                    countDownTimer.cancel();
+                    Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    counter=1;
+                    countDownTimer.cancel();
+                    Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
                     startActivity(intent);}
             }
         });
@@ -97,9 +173,22 @@ public class QuestionActivity extends AppCompatActivity {
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Integer.parseInt(button5.getText().toString())==question.getAnswer()){
+                if((Integer.parseInt(button5.getText().toString())==question.getAnswer()) && (qSet.getNumberOfQuestions()>counter) ){
                     createQuestion();
-                }else{Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                    ++counter;
+                    progressBar.setProgress(counter);
+                    textViewQuestion.setText(counter+"/"+qSet.getNumberOfQuestions());
+                }else if((Integer.parseInt(button5.getText().toString())==question.getAnswer()) && (qSet.getNumberOfQuestions()==counter+1)){
+                    Toast.makeText(QuestionActivity.this, "Well Done!", Toast.LENGTH_LONG).show();
+                    counter=1;
+                    countDownTimer.cancel();
+                    Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    counter=1;
+                    countDownTimer.cancel();
+                    Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
                     startActivity(intent);}
             }
         });
@@ -107,9 +196,22 @@ public class QuestionActivity extends AppCompatActivity {
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Integer.parseInt(button6.getText().toString())==question.getAnswer()){
+                if((Integer.parseInt(button6.getText().toString())==question.getAnswer()) && (qSet.getNumberOfQuestions()>counter) ){
                     createQuestion();
-                }else{Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                    ++counter;
+                    progressBar.setProgress(counter);
+                    textViewQuestion.setText(counter+"/"+qSet.getNumberOfQuestions());
+                }else if((Integer.parseInt(button6.getText().toString())==question.getAnswer()) && (qSet.getNumberOfQuestions()==counter+1)){
+                    Toast.makeText(QuestionActivity.this, "Well Done!", Toast.LENGTH_LONG).show();
+                    counter=1;
+                    countDownTimer.cancel();
+                    Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    counter=1;
+                    countDownTimer.cancel();
+                    Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
                     startActivity(intent);}
             }
         });

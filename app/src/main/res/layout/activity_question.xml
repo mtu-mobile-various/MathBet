@@ -10,9 +10,9 @@
         android:id="@+id/secondNumber"
         android:layout_width="105dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
         android:gravity="left"
         android:inputType="number"
@@ -28,11 +28,38 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
+        android:gravity="right"
         android:text="10"
         android:textSize="30sp"
-        android:gravity="right"
         app:layout_constraintBaseline_toBaselineOf="@+id/calculationSign"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/question_text"
+        android:layout_width="41dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:gravity="right"
+        android:text="5/15"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:text="10"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/progressBar"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/calculationSign"
@@ -125,4 +152,18 @@
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answer4" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:minWidth="200dp"
+        android:max="10"
+        android:progress="1"
+        app:layout_constraintStart_toEndOf="@+id/question_text"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
