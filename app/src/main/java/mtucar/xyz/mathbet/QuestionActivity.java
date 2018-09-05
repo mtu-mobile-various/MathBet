@@ -10,8 +10,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -27,17 +25,17 @@ import mtucar.xyz.mathbet.data.PlayerData;
 public class QuestionActivity extends AppCompatActivity {
 
     private static int counter = 1;
-    TextView textViewFirst;
-    TextView textViewSecond;
-    TextView textViewOperation;
-    TextView textViewTime;
-    TextView textViewQuestion;
-    Button button1;
-    Button button2;
-    Button button3;
-    Button button4;
-    Button button5;
-    Button button6;
+    TextView txtViewFirst;
+    TextView txtViewSecond;
+    TextView txtViewOperation;
+    TextView txtViewTime;
+    TextView txtViewQuestion;
+    Button btnAnswer1;
+    Button btnAnswer2;
+    Button btnAnswer3;
+    Button btnAnswer4;
+    Button btnAnswer5;
+    Button btnAnswer6;
     QuestionSet qSet;
     Question question;
     ProgressBar progressBar;
@@ -50,18 +48,18 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-        textViewFirst = findViewById(R.id.firstNumber);
-        textViewSecond = findViewById(R.id.secondNumber);
-        textViewOperation = findViewById(R.id.calculationSign);
-        textViewTime = findViewById(R.id.time_text);
-        textViewQuestion = findViewById(R.id.question_text);
+        txtViewFirst = findViewById(R.id.firstNumber);
+        txtViewSecond = findViewById(R.id.secondNumber);
+        txtViewOperation = findViewById(R.id.calculationSign);
+        txtViewTime = findViewById(R.id.time_text);
+        txtViewQuestion = findViewById(R.id.question_text);
         progressBar = findViewById(R.id.progressBar);
-        button1 = findViewById(R.id.answer1);
-        button2 = findViewById(R.id.answer2);
-        button3 = findViewById(R.id.answer3);
-        button4 = findViewById(R.id.answer4);
-        button5 = findViewById(R.id.answer5);
-        button6 = findViewById(R.id.answer6);
+        btnAnswer1 = findViewById(R.id.answer1);
+        btnAnswer2 = findViewById(R.id.answer2);
+        btnAnswer3 = findViewById(R.id.answer3);
+        btnAnswer4 = findViewById(R.id.answer4);
+        btnAnswer5 = findViewById(R.id.answer5);
+        btnAnswer6 = findViewById(R.id.answer6);
 
 
         playerList = PlayerData.playerList;
@@ -69,14 +67,14 @@ public class QuestionActivity extends AppCompatActivity {
         qSet = getIntent().getParcelableExtra("questionSet");
         progressBar.setMax(qSet.getNumberOfQuestions());
         progressBar.setProgress(1);
-        textViewQuestion.setText(counter + "/" + qSet.getNumberOfQuestions());
+        txtViewQuestion.setText(counter + "/" + qSet.getNumberOfQuestions());
 
         createQuestion();
 
         countDownTimer = new CountDownTimer(qSet.getTime() * 1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                textViewTime.setText("" + millisUntilFinished / 1000);
+                txtViewTime.setText("" + millisUntilFinished / 1000);
             }
 
             public void onFinish() {
@@ -85,12 +83,12 @@ public class QuestionActivity extends AppCompatActivity {
         }.start();
 
 
-        button1.setOnClickListener(new View.OnClickListener() {
+        btnAnswer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((Integer.parseInt(button1.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() > counter)) {
+                if ((Integer.parseInt(btnAnswer1.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() > counter)) {
                     buttonContinueFuncs();
-                } else if ((Integer.parseInt(button1.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() == counter )) {
+                } else if ((Integer.parseInt(btnAnswer1.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() == counter )) {
                    buttonWinFuncs();
                 } else {
                     buttonLooseFuncs();
@@ -98,37 +96,24 @@ public class QuestionActivity extends AppCompatActivity {
             }
         });
 
-        button2.setOnClickListener(new View.OnClickListener() {
+        btnAnswer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((Integer.parseInt(button2.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() > counter)) {
+                if ((Integer.parseInt(btnAnswer2.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() > counter)) {
                     buttonContinueFuncs();
-                } else if ((Integer.parseInt(button2.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() == counter)) {
+                } else if ((Integer.parseInt(btnAnswer2.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() == counter)) {
                     buttonWinFuncs();
                 } else {
                     buttonLooseFuncs();
                 }
             }
         });
-        button3.setOnClickListener(new View.OnClickListener() {
+        btnAnswer3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((Integer.parseInt(button3.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() > counter)) {
+                if ((Integer.parseInt(btnAnswer3.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() > counter)) {
                     buttonContinueFuncs();
-                } else if ((Integer.parseInt(button3.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() == counter)) {
-                    buttonWinFuncs();
-                } else {
-                    buttonLooseFuncs();
-                }
-            }
-        });
-
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if ((Integer.parseInt(button4.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() > counter)) {
-                    buttonContinueFuncs();
-                } else if ((Integer.parseInt(button4.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() == counter)) {
+                } else if ((Integer.parseInt(btnAnswer3.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() == counter)) {
                     buttonWinFuncs();
                 } else {
                     buttonLooseFuncs();
@@ -136,12 +121,12 @@ public class QuestionActivity extends AppCompatActivity {
             }
         });
 
-        button5.setOnClickListener(new View.OnClickListener() {
+        btnAnswer4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((Integer.parseInt(button5.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() > counter)) {
+                if ((Integer.parseInt(btnAnswer4.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() > counter)) {
                     buttonContinueFuncs();
-                } else if ((Integer.parseInt(button5.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() == counter)) {
+                } else if ((Integer.parseInt(btnAnswer4.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() == counter)) {
                     buttonWinFuncs();
                 } else {
                     buttonLooseFuncs();
@@ -149,12 +134,25 @@ public class QuestionActivity extends AppCompatActivity {
             }
         });
 
-        button6.setOnClickListener(new View.OnClickListener() {
+        btnAnswer5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((Integer.parseInt(button6.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() > counter)) {
+                if ((Integer.parseInt(btnAnswer5.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() > counter)) {
                     buttonContinueFuncs();
-                } else if ((Integer.parseInt(button6.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() == counter)) {
+                } else if ((Integer.parseInt(btnAnswer5.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() == counter)) {
+                    buttonWinFuncs();
+                } else {
+                    buttonLooseFuncs();
+                }
+            }
+        });
+
+        btnAnswer6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if ((Integer.parseInt(btnAnswer6.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() > counter)) {
+                    buttonContinueFuncs();
+                } else if ((Integer.parseInt(btnAnswer6.getText().toString()) == question.getAnswer()) && (qSet.getNumberOfQuestions() == counter)) {
                     buttonWinFuncs();
                 } else {
                     buttonLooseFuncs();
@@ -170,26 +168,26 @@ public class QuestionActivity extends AppCompatActivity {
 
         if (queType == 0) {
             question = new QuestionPlus(qSet.isHard());
-            textViewOperation.setText("+");
+            txtViewOperation.setText("+");
         } else if (queType == 1) {
             question = new QuestionMultiply(qSet.isHard());
-            textViewOperation.setText("x");
+            txtViewOperation.setText("x");
         } else if (queType == 2) {
             question = new QuestionMinus(qSet.isHard());
-            textViewOperation.setText("-");
+            txtViewOperation.setText("-");
         } else {
             question = new QuestionDivide(qSet.isHard());
-            textViewOperation.setText("/");
+            txtViewOperation.setText("/");
         }
 
-        textViewFirst.setText(String.valueOf(question.getFirstNumber()));
-        textViewSecond.setText(String.valueOf(question.getSecondNumber()));
-        button1.setText(String.valueOf(question.getOtherChoices()[5]));
-        button2.setText(String.valueOf(question.getOtherChoices()[0]));
-        button3.setText(String.valueOf(question.getOtherChoices()[1]));
-        button4.setText(String.valueOf(question.getOtherChoices()[2]));
-        button5.setText(String.valueOf(question.getOtherChoices()[3]));
-        button6.setText(String.valueOf(question.getOtherChoices()[4]));
+        txtViewFirst.setText(String.valueOf(question.getFirstNumber()));
+        txtViewSecond.setText(String.valueOf(question.getSecondNumber()));
+        btnAnswer1.setText(String.valueOf(question.getOtherChoices()[5]));
+        btnAnswer2.setText(String.valueOf(question.getOtherChoices()[0]));
+        btnAnswer3.setText(String.valueOf(question.getOtherChoices()[1]));
+        btnAnswer4.setText(String.valueOf(question.getOtherChoices()[2]));
+        btnAnswer5.setText(String.valueOf(question.getOtherChoices()[3]));
+        btnAnswer6.setText(String.valueOf(question.getOtherChoices()[4]));
 
     }
 
@@ -197,7 +195,7 @@ public class QuestionActivity extends AppCompatActivity {
         createQuestion();
         ++counter;
         progressBar.setProgress(counter);
-        textViewQuestion.setText(counter+"/"+qSet.getNumberOfQuestions());
+        txtViewQuestion.setText(counter+"/"+qSet.getNumberOfQuestions());
     }
 
     private void buttonWinFuncs(){

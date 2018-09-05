@@ -34,17 +34,17 @@ public class QuestionListActivity extends AppCompatActivity {
                 new ArrayAdapter<QuestionSet>(this, android.R.layout.simple_list_item_1, questionSet);
 
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // ListView Clicked item value
-                QuestionSet qSet = (QuestionSet) listView.getItemAtPosition(position);
-                Intent intent = new Intent(QuestionListActivity.this, QuestionActivity.class);
-                intent.putExtra("questionSet", (Parcelable) qSet);
-                startActivity(intent);
-            }
-        });
-
-
+        listView.setOnItemClickListener(itemClickListener);
     }
+
+    private AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            // ListView Clicked item value
+            QuestionSet qSet = (QuestionSet) listView.getItemAtPosition(position);
+            Intent intent = new Intent(QuestionListActivity.this, QuestionActivity.class);
+            intent.putExtra("questionSet", (Parcelable) qSet);
+            startActivity(intent);
+        }
+    };
 }
