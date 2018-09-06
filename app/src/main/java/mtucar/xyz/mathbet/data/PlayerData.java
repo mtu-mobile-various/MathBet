@@ -21,12 +21,11 @@ public class PlayerData {
         addPlayer(new Player(4,"Marc Tutanberg", 1000000, 5 ));
         addPlayer(new Player(5,"Player", 100, 5 ));
 
-
-
     }
 
     private static void addPlayer(Player player) {
         playerList.add(player);
         playerMap.put(player.getId(), player);
     }
+
 }

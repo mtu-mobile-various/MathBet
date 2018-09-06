@@ -2,12 +2,17 @@ package mtucar.xyz.mathbet;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.List;
+
+import mtucar.xyz.mathbet.classes.Player;
+import mtucar.xyz.mathbet.data.PlayerData;
 import mtucar.xyz.mathbet.database.DataSource;
 import mtucar.xyz.mathbet.database.DbHelper;
 
@@ -16,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonBet;
     Button buttonPlayer;
     DataSource mDataSource;
+    List<Player> playerList = PlayerData.playerList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
 
         mDataSource = new DataSource(this);
         mDataSource.open();
+
+        long numPlayers = mDataSource.getPlayersCount();
+
+        if(numPlayers==0){
+            for(Player player: playerList){
+                try {
+                    mDataSource.createPlayer(player);
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
         buttonBet = findViewById(R.id.buttonBet);
         buttonBet.setOnClickListener(new View.OnClickListener() {

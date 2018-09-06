@@ -1,5 +1,9 @@
 package mtucar.xyz.mathbet.classes;
 
+import android.content.ContentValues;
+
+import mtucar.xyz.mathbet.database.PlayerTable;
+
 public class Player {
 
     private int id;
@@ -46,6 +50,15 @@ public class Player {
         this.luckFactor = luckFactor;
     }
 
+    public ContentValues toValues(){
+        ContentValues values = new ContentValues(4);
+
+        values.put(PlayerTable.COLUMN_ID, id);
+        values.put(PlayerTable.COLUMN_NAME, name);
+        values.put(PlayerTable.COLUMN_MONEY, money);
+        values.put(PlayerTable.COLUMN_LUCK, luckFactor);
+        return values;
+    }
     @Override
     public String toString() {
         return "Player{" +
