@@ -7,6 +7,9 @@ public class PlayerTable {
     public static final String COLUMN_MONEY = "playerMoney";
     public static final String COLUMN_LUCK = "playerLuck";
 
+    public static final String[] ALL_COLUMNS =
+            {COLUMN_ID, COLUMN_NAME, COLUMN_MONEY, COLUMN_LUCK};
+
     public static final String SQL_CREATE =
             "CREATE TABLE " + TABLE_PLAYERS + "(" +
                     COLUMN_ID + " TEXT PRIMARY KEY, "+

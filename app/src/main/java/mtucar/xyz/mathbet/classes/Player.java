@@ -11,6 +11,8 @@ public class Player {
     private long money;
     private int luckFactor;
 
+    public Player(){}
+
     public Player(int id, String name, long money, int luckFactor) {
         this.id = id;
         this.name = name;

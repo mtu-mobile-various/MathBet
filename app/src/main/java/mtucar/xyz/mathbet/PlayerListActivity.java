@@ -9,22 +9,26 @@ import java.util.List;
 
 import mtucar.xyz.mathbet.classes.Player;
 import mtucar.xyz.mathbet.data.PlayerData;
+import mtucar.xyz.mathbet.database.DataSource;
 
 public class PlayerListActivity extends AppCompatActivity {
 
     ListView listView;
-    List<Player> playerList = PlayerData.playerList;
+    List<Player> playerList;
+    DataSource mDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_list);
 
+        mDataSource = new DataSource(this);
+        playerList = mDataSource.getAllPlayers();
+
         listView = findViewById(R.id.list_view_player);
         ArrayAdapter<Player> adapter =
-                new ArrayAdapter<Player>(this,android.R.layout.simple_list_item_1,playerList);
+                new ArrayAdapter<Player>(this,android.R.layout.simple_list_item_1, playerList);
         listView.setAdapter(adapter);
-
 
     }
 }

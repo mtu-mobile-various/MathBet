@@ -30,18 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         mDataSource = new DataSource(this);
         mDataSource.open();
+        mDataSource.seedDB(playerList);
 
-        long numPlayers = mDataSource.getPlayersCount();
-
-        if(numPlayers==0){
-            for(Player player: playerList){
-                try {
-                    mDataSource.createPlayer(player);
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
 
         buttonBet = findViewById(R.id.buttonBet);
         buttonBet.setOnClickListener(new View.OnClickListener() {
