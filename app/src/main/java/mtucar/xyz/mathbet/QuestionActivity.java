@@ -21,6 +21,7 @@ import mtucar.xyz.mathbet.classes.QuestionMultiply;
 import mtucar.xyz.mathbet.classes.QuestionPlus;
 import mtucar.xyz.mathbet.classes.QuestionSet;
 import mtucar.xyz.mathbet.data.PlayerData;
+import mtucar.xyz.mathbet.database.DataSource;
 
 public class QuestionActivity extends AppCompatActivity {
 
@@ -41,6 +42,7 @@ public class QuestionActivity extends AppCompatActivity {
     ProgressBar progressBar;
     CountDownTimer countDownTimer;
     List<Player> playerList;
+    DataSource dataSource;
 
 
     @Override
@@ -202,18 +204,25 @@ public class QuestionActivity extends AppCompatActivity {
         Toast.makeText(QuestionActivity.this, "Well Done!", Toast.LENGTH_LONG).show();
         counter=1;
         countDownTimer.cancel();
-        playerList.get(4).setMoney((long) ((playerList.get(4).getMoney()) * (1 + qSet.getPercentage())));
-
+        updatePlayerMoney(qSet.getPercentage());
         Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
         startActivity(intent);
     }
 
     private void buttonLooseFuncs(){
         counter=1;
+        qSet.setPercentage(-1* qSet.getPercentage());
         countDownTimer.cancel();
-        playerList.get(4).setMoney((long) ((playerList.get(4).getMoney()) * (1 - qSet.getPercentage())));
+        updatePlayerMoney(qSet.getPercentage());
         Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
-        startActivity(intent);}
+        startActivity(intent);
     }
+
+    private void updatePlayerMoney(double rise){
+        dataSource = new DataSource(this);
+        dataSource.open();
+        dataSource.updateMoney(rise);
+    }
+}
 
 

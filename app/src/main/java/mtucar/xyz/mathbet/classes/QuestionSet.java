@@ -46,6 +46,10 @@ public class QuestionSet implements Parcelable {
         return time;
     }
 
+    public void setPercentage(double percentage) {
+        this.percentage = percentage;
+    }
+
     @Override
     public String toString() {
         return "QuestionSet{" +

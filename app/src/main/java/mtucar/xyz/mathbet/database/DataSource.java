@@ -70,9 +70,10 @@ public class DataSource {
         return playerList;
     }
 
-    public void updateMoney(int rise){
+    public void updateMoney(double rise){
+        rise += 1;
         mDataBase.execSQL("UPDATE " + PlayerTable.TABLE_PLAYERS +
-                            " SET " + PlayerTable.COLUMN_MONEY + " = (" + (PlayerTable.COLUMN_MONEY + rise) + ") WHERE " +
+                            " SET " + PlayerTable.COLUMN_MONEY + " = (" + PlayerTable.COLUMN_MONEY + "*" + rise + ") WHERE " +
                             PlayerTable.COLUMN_ID + "=5;");
     }
 }
