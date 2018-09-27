@@ -16,7 +16,7 @@
         android:ems="10"
         android:gravity="left"
         android:inputType="number"
-        android:text="10"
+        android:text="@string/number"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +29,7 @@
         android:layout_marginStart="16dp"
         android:ems="10"
         android:gravity="right"
-        android:text="10"
+        android:text="@string/number"
         android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/calculationSign"
         app:layout_constraintStart_toStartOf="parent" />
@@ -43,7 +43,7 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:gravity="right"
-        android:text="5/15"
+        android:text="@string/ratio"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +56,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:text="10"
+        android:text="@string/time"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/progressBar"
         app:layout_constraintTop_toTopOf="parent" />
@@ -71,7 +71,7 @@
         android:layout_marginStart="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="+"
+        android:text="@string/sign"
         android:textSize="30sp"
         android:gravity="center"
         app:layout_constraintBaseline_toBaselineOf="@+id/secondNumber"
@@ -87,7 +87,7 @@
         android:layout_marginRight="109dp"
         android:layout_marginStart="74dp"
         android:layout_marginTop="63dp"
-        android:text="Button"
+        android:text="@string/number"
         app:layout_constraintEnd_toStartOf="@+id/answer2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstNumber" />
@@ -99,7 +99,7 @@
         android:layout_marginEnd="72dp"
         android:layout_marginRight="72dp"
         android:layout_marginTop="63dp"
-        android:text="Button"
+        android:text="@string/number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/secondNumber" />
 
@@ -112,7 +112,7 @@
         android:layout_marginRight="109dp"
         android:layout_marginStart="74dp"
         android:layout_marginTop="63dp"
-        android:text="Button"
+        android:text="@string/number"
         app:layout_constraintEnd_toStartOf="@+id/answer4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answer1" />
@@ -124,7 +124,7 @@
         android:layout_marginEnd="72dp"
         android:layout_marginRight="72dp"
         android:layout_marginTop="63dp"
-        android:text="Button"
+        android:text="@string/number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answer2" />
 
@@ -137,7 +137,7 @@
         android:layout_marginRight="109dp"
         android:layout_marginStart="74dp"
         android:layout_marginTop="63dp"
-        android:text="Button"
+        android:text="@string/number"
         app:layout_constraintEnd_toStartOf="@+id/answer4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answer3" />
@@ -149,7 +149,7 @@
         android:layout_marginEnd="72dp"
         android:layout_marginRight="72dp"
         android:layout_marginTop="63dp"
-        android:text="Button"
+        android:text="@string/number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answer4" />
 

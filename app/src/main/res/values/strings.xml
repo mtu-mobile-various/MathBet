@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">MathBet</string>
+    <string name="user_name">Player</string>
+    <string name="user_money">$100</string>
+    <string name="btn_bet">Bet</string>
+    <string name="btn_list">Rich List</string>
+    <string name="btn_options">Options</string>
+
+    <string name="number">100</string>
+    <string name="sign">+</string>
+    <string name="ratio">1/15</string>
+    <string name="time">30s</string>
+
 </resources>
