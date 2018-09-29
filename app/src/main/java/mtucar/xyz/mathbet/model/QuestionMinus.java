@@ -1,29 +1,28 @@
-package mtucar.xyz.mathbet.classes;
+package mtucar.xyz.mathbet.model;
 
 import java.util.Random;
 
-public class QuestionMultiply extends Question {
-    private QuestionType qType;
-    private QuestionStatus qStatus;
+public class QuestionMinus extends Question {
 
-    public QuestionMultiply(boolean isHard){
-        qType = QuestionType.MULTIPLY;
-        qStatus = QuestionStatus.ONGOING;
+
+    public QuestionMinus(boolean isHard){
         this.setHard(isHard);
         Random random = new Random();
         if(isHard){
             setFirstNumber(random.nextInt(100)+10);
-            setSecondNumber(random.nextInt(10)+1);
+            setSecondNumber(random.nextInt(100)+10);
         }else{
             setFirstNumber(random.nextInt(10)+1);
             setSecondNumber(random.nextInt(10)+1);
+            if(getFirstNumber()< getSecondNumber())
+                swapNumbers();
         }
         calculateAnswers();
     }
 
     @Override
     public void calculateAnswers() {
-        setAnswer(getFirstNumber()* getSecondNumber());
+        setAnswer(getFirstNumber()-getSecondNumber());
         Random random = new Random();
         int[] temp = new int[6];
         temp[0] = getAnswer() + random.nextInt(5)+1;

@@ -13,13 +13,13 @@ import android.widget.Toast;
 import java.util.List;
 import java.util.Random;
 
-import mtucar.xyz.mathbet.classes.Player;
-import mtucar.xyz.mathbet.classes.Question;
-import mtucar.xyz.mathbet.classes.QuestionDivide;
-import mtucar.xyz.mathbet.classes.QuestionMinus;
-import mtucar.xyz.mathbet.classes.QuestionMultiply;
-import mtucar.xyz.mathbet.classes.QuestionPlus;
-import mtucar.xyz.mathbet.classes.QuestionSet;
+import mtucar.xyz.mathbet.model.Player;
+import mtucar.xyz.mathbet.model.Question;
+import mtucar.xyz.mathbet.model.QuestionDivide;
+import mtucar.xyz.mathbet.model.QuestionMinus;
+import mtucar.xyz.mathbet.model.QuestionMultiply;
+import mtucar.xyz.mathbet.model.QuestionPlus;
+import mtucar.xyz.mathbet.model.QuestionSet;
 import mtucar.xyz.mathbet.data.PlayerData;
 import mtucar.xyz.mathbet.database.DataSource;
 

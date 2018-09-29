@@ -1,4 +1,4 @@
-package mtucar.xyz.mathbet.classes;
+package mtucar.xyz.mathbet.model;
 
 import android.content.ContentValues;
 
@@ -52,6 +52,13 @@ public class Player {
         this.luckFactor = luckFactor;
     }
 
+
+    /*
+    toValues()
+    it returns a ContentValues object to write it
+    to the database
+    @return ContentValues
+     */
     public ContentValues toValues(){
         ContentValues values = new ContentValues(4);
 

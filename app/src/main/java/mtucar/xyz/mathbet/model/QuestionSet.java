@@ -1,4 +1,4 @@
-package mtucar.xyz.mathbet.classes;
+package mtucar.xyz.mathbet.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

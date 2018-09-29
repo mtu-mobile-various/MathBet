@@ -7,8 +7,7 @@ import android.widget.ListView;
 
 import java.util.List;
 
-import mtucar.xyz.mathbet.classes.Player;
-import mtucar.xyz.mathbet.data.PlayerData;
+import mtucar.xyz.mathbet.model.Player;
 import mtucar.xyz.mathbet.database.DataSource;
 
 public class PlayerListActivity extends AppCompatActivity {

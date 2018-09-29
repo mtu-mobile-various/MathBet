@@ -8,17 +8,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import java.util.List;
-
-import mtucar.xyz.mathbet.classes.Player;
-import mtucar.xyz.mathbet.classes.QuestionSet;
-import mtucar.xyz.mathbet.data.PlayerData;
+import mtucar.xyz.mathbet.model.QuestionSet;
 
 public class QuestionListActivity extends AppCompatActivity {
 
     ListView listView;
+    int numberOfQuestionSet = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +22,8 @@ public class QuestionListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_question_list);
 
         listView = findViewById(R.id.question_list);
-        QuestionSet[] questionSet = new QuestionSet[5];
-        for(int i=0; i<5; ++i)
+        QuestionSet[] questionSet = new QuestionSet[numberOfQuestionSet];
+        for(int i=0; i<numberOfQuestionSet; ++i)
             questionSet[i] = new QuestionSet();
 
         ArrayAdapter<QuestionSet> adapter =

@@ -1,10 +1,8 @@
-package mtucar.xyz.mathbet.classes;
+package mtucar.xyz.mathbet.model;
 
 import java.util.Random;
 
 public abstract class Question {
-    public enum QuestionStatus{FALSE, TRUE, ONGOING};
-    public enum QuestionType{PLUS, MINUS, DIVIDE, MULTIPLY};
 
     private int firstNumber;
     private int secondNumber;

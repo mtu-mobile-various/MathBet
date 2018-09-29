@@ -1,17 +1,10 @@
-package mtucar.xyz.mathbet.classes;
+package mtucar.xyz.mathbet.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
 import java.util.Random;
 
 public class QuestionPlus extends Question {
-    private QuestionType qType;
-    private QuestionStatus qStatus;
 
     public QuestionPlus(boolean isHard){
-        qType = QuestionType.PLUS;
-        qStatus = QuestionStatus.ONGOING;
         this.setHard(isHard);
         Random random = new Random();
         if(isHard){

@@ -10,6 +10,9 @@ public class PlayerTable {
     public static final String[] ALL_COLUMNS =
             {COLUMN_ID, COLUMN_NAME, COLUMN_MONEY, COLUMN_LUCK};
 
+    /*
+    The string for creating SQL DAtabase
+     */
     public static final String SQL_CREATE =
             "CREATE TABLE " + TABLE_PLAYERS + "(" +
                     COLUMN_ID + " TEXT PRIMARY KEY, "+

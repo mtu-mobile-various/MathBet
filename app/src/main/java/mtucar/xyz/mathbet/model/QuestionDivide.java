@@ -1,14 +1,10 @@
-package mtucar.xyz.mathbet.classes;
+package mtucar.xyz.mathbet.model;
 
 import java.util.Random;
 
 public class QuestionDivide extends Question {
-    private QuestionType qType;
-    private QuestionStatus qStatus;
 
     public QuestionDivide(boolean isHard){
-        qType = QuestionType.DIVIDE;
-        qStatus = QuestionStatus.ONGOING;
         this.setHard(isHard);
         Random random = new Random();
         if(isHard){

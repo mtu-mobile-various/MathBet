@@ -11,13 +11,18 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import mtucar.xyz.mathbet.classes.Player;
+import mtucar.xyz.mathbet.model.Player;
 
 public class DataSource {
     private Context mContext;
     private SQLiteDatabase mDataBase;
     SQLiteOpenHelper mDbHelper;
 
+    /*
+    Constractor for DataSource
+    it creates a context & dbHelper object
+    & a Database Object
+     */
     public DataSource(Context Context) {
         this.mContext = Context;
         mDbHelper = new DbHelper(mContext);
@@ -41,6 +46,11 @@ public class DataSource {
         return DatabaseUtils.queryNumEntries(mDataBase, PlayerTable.TABLE_PLAYERS);
     }
 
+    /*
+    Method to populate the DB
+    it takes the data as a list and
+    insert the data
+     */
     public void seedDB(List<Player> playerList){
         long numPlayers = getPlayersCount();
 
@@ -55,6 +65,10 @@ public class DataSource {
         }
     }
 
+    /*
+    Method to populate a list from
+    DB data
+     */
     public List<Player> getAllPlayers(){
         List<Player> playerList = new ArrayList<>();
         Cursor cursor = mDataBase.query(PlayerTable.TABLE_PLAYERS,PlayerTable.ALL_COLUMNS,
