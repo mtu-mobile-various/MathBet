@@ -27,7 +27,7 @@ public class QuestionSet implements Parcelable {
         }else{
             factor = 0.05;
         }
-        percentage = (numberOfQuestions*factor)/time;
+        percentage = ((numberOfQuestions*factor)/time);
     }
 
     public int getNumberOfQuestions() {

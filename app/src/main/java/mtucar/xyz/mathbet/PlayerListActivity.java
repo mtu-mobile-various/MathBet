@@ -30,4 +30,17 @@ public class PlayerListActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mDataSource.close();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mDataSource.open();
+    }
 }

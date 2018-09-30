@@ -9,6 +9,15 @@
     <string name="number">100</string>
     <string name="sign">+</string>
     <string name="ratio">1/15</string>
-    <string name="time">30s</string>
+    <string name="time">30</string>
+    <string name="hard">Hard</string>
+    <string name="betratio">%0.8</string>
+    <string name="labelratio">Ratio:</string>
+    <string name="labeltime">Time:</string>
+    <string name="labelhard">Level:</string>
+    <string name="betmoney">I want to Risk:</string>
+    <string name="percentage">%50</string>
+
+
 
 </resources>

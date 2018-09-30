@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvRatio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/betratio"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/digital7"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvLabelRatio"
+        app:layout_constraintStart_toEndOf="@+id/tvLabelRatio" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/time"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/digital7"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvLabelDuration"
+        app:layout_constraintStart_toEndOf="@+id/tvLabelDuration" />
+
+    <TextView
+        android:id="@+id/tvLabelLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/labelhard"
+        android:textSize="14sp"
+        app:fontFamily="@font/digital7"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvTime"
+        app:layout_constraintStart_toEndOf="@+id/tvTime" />
+
+    <TextView
+        android:id="@+id/tvLabelRatio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/labelratio"
+        android:textSize="14sp"
+        app:fontFamily="@font/digital7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLabelDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/labeltime"
+        android:textSize="14sp"
+        app:fontFamily="@font/digital7"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvRatio"
+        app:layout_constraintStart_toEndOf="@+id/tvRatio" />
+
+    <TextView
+        android:id="@+id/tvLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/hard"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/digital7"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvLabelLevel"
+        app:layout_constraintStart_toEndOf="@+id/tvLabelLevel" />
+</android.support.constraint.ConstraintLayout>
