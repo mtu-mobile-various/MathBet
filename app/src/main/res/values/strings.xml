@@ -17,7 +17,8 @@
     <string name="labelhard">Level:</string>
     <string name="betmoney">I want to Risk:</string>
     <string name="percentage">%50</string>
-
+    <string name="result">You Win!</string>
+    <string name="yourmoney">Your Money:</string>
 
 
 </resources>

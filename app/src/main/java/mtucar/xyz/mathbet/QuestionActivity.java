@@ -164,7 +164,6 @@ public class QuestionActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     private void createQuestion(){
@@ -207,8 +206,9 @@ public class QuestionActivity extends AppCompatActivity {
         Toast.makeText(QuestionActivity.this, "Well Done!", Toast.LENGTH_LONG).show();
         counter=1;
         countDownTimer.cancel();
-        updatePlayerMoney(qSet.getPercentage());
-        Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+        Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
+        intent.putExtra("betMoney", betMoney);
+        intent.putExtra("rise", qSet.getPercentage());
         startActivity(intent);
     }
 
@@ -216,16 +216,13 @@ public class QuestionActivity extends AppCompatActivity {
         counter=1;
         qSet.setPercentage(-1* qSet.getPercentage());
         countDownTimer.cancel();
-        updatePlayerMoney(qSet.getPercentage());
-        Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+        Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
+        intent.putExtra("betMoney", betMoney);
+        intent.putExtra("rise", qSet.getPercentage());
         startActivity(intent);
     }
 
-    private void updatePlayerMoney(double rise){
-        dataSource = new DataSource(this);
-        dataSource.open();
-        dataSource.updateMoney(rise);
-    }
+
 }
 
 

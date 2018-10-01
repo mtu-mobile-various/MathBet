@@ -36,12 +36,12 @@ public class QuestionListActivity extends AppCompatActivity {
 
         tvBetMoney = findViewById(R.id.tvUserMoney);
 
-        //Get the user money from Database
+        //Get the user initialMoney from Database
         mDataSource = new DataSource(this);
         userMoney = mDataSource.getUserMoney();
 
 
-        //seekBar to change the amount of the money
+        //seekBar to change the amount of the initialMoney
         tvMoney = findViewById(R.id.tvPercentage);
         seekBar = findViewById(R.id.seekBar);
         betMoney = Double.parseDouble(userMoney)*0.5;
