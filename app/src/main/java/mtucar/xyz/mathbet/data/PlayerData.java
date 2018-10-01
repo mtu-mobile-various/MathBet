@@ -16,10 +16,10 @@ public class PlayerData {
         playerMap = new HashMap<>();
 
         addPlayer(new Player(1,"Donald Krump", 1000000, 5 ));
-        addPlayer(new Player(2,"Paris Milton", 1000000, 5 ));
-        addPlayer(new Player(3,"Bill Windows", 1000000, 5 ));
-        addPlayer(new Player(4,"Marc Tutanberg", 1000000, 5 ));
-        addPlayer(new Player(5,"Player", 100, 5 ));
+        addPlayer(new Player(2,"Paris Hiltom", 1000000, 5 ));
+        addPlayer(new Player(3,"Bill Gate", 1000000, 5 ));
+        addPlayer(new Player(4,"Marc Tutanberg", 100000, 5 ));
+        addPlayer(new Player(5,"Player", 1000, 5 ));
 
     }
 

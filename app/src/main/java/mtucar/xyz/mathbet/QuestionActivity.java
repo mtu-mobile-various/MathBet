@@ -39,6 +39,7 @@ public class QuestionActivity extends AppCompatActivity {
     Button btnAnswer6;
     QuestionSet qSet;
     Question question;
+    int betMoney;
     ProgressBar progressBar;
     CountDownTimer countDownTimer;
     List<Player> playerList;
@@ -67,6 +68,8 @@ public class QuestionActivity extends AppCompatActivity {
         playerList = PlayerData.playerList;
 
         qSet = getIntent().getParcelableExtra("questionSet");
+        betMoney = getIntent().getIntExtra("betMoney",0);
+
         progressBar.setMax(qSet.getNumberOfQuestions());
         progressBar.setProgress(1);
         txtViewQuestion.setText(counter + "/" + qSet.getNumberOfQuestions());
