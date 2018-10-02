@@ -7,6 +7,7 @@ import android.widget.ListView;
 
 import java.util.List;
 
+import mtucar.xyz.mathbet.database.PlayerAdapter;
 import mtucar.xyz.mathbet.model.Player;
 import mtucar.xyz.mathbet.database.DataSource;
 
@@ -25,8 +26,7 @@ public class PlayerListActivity extends AppCompatActivity {
         playerList = mDataSource.getAllPlayers();
 
         listView = findViewById(R.id.list_view_player);
-        ArrayAdapter<Player> adapter =
-                new ArrayAdapter<Player>(this,android.R.layout.simple_list_item_1, playerList);
+        PlayerAdapter adapter = new PlayerAdapter(this, playerList);
         listView.setAdapter(adapter);
 
     }
