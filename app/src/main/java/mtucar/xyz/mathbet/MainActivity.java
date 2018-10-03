@@ -1,10 +1,13 @@
 package mtucar.xyz.mathbet;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -16,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
     Button buttonBet;
     Button buttonPlayer;
+    Button btnOptions;
+    TextView tvPlayerName;
     DataSource mDataSource;
+    String name;
     List<Player> playerList = PlayerData.playerList;
 
     @Override
@@ -28,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mDataSource.open();
         mDataSource.seedDB(playerList);
 
+        createUserText();
 
         buttonBet = findViewById(R.id.buttonBet);
         buttonBet.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnOptions = findViewById(R.id.buttonOptions);
+        btnOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -58,5 +74,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mDataSource.open();
+
+        createUserText();
+    }
+
+    private void createUserText(){
+        tvPlayerName = findViewById(R.id.tvUserName);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        name = preferences.getString("player_name_preference", "Player");
+        tvPlayerName.setText(name);
     }
 }

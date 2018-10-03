@@ -21,7 +21,15 @@
         <activity android:name=".QuestionActivity" />
         <activity android:name=".QuestionListActivity" />
         <activity android:name=".PlayerListActivity" />
-        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".ResultActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mtucar.xyz.mathbet.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
