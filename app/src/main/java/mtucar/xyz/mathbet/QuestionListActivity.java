@@ -21,8 +21,8 @@ public class QuestionListActivity extends AppCompatActivity {
     TextView tvMoney;
     TextView tvBetMoney;
     ListView listView;
-    String userMoney;
-    Double betMoney;
+    int userMoney;
+    int betMoney;
     int betFinalMoney;
     int seekBarProgress;
     DataSource mDataSource;
@@ -44,14 +44,15 @@ public class QuestionListActivity extends AppCompatActivity {
         //seekBar to change the amount of the initialMoney
         tvMoney = findViewById(R.id.tvPercentage);
         seekBar = findViewById(R.id.seekBar);
-        betMoney = Double.parseDouble(userMoney)*0.5;
+        betMoney = (int) (userMoney * 0.5);
+
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 tvMoney.setText(String.valueOf(progress));
                 seekBarProgress = progress;
-                betMoney = Double.parseDouble(userMoney)*progress/100;
+                betMoney = userMoney * progress / 100;
             }
 
             @Override
@@ -82,6 +83,7 @@ public class QuestionListActivity extends AppCompatActivity {
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
             // ListView Clicked item value
             QuestionSet qSet = (QuestionSet) listView.getItemAtPosition(position);
+            betFinalMoney = Integer.valueOf((int) (qSet.getPercentage()* betMoney));
             Intent intent = new Intent(QuestionListActivity.this, QuestionActivity.class);
             intent.putExtra("questionSet", (Parcelable) qSet);
             intent.putExtra("betMoney", betFinalMoney);

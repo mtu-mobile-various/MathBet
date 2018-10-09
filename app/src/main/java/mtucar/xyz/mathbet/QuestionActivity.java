@@ -43,7 +43,7 @@ public class QuestionActivity extends AppCompatActivity {
     ProgressBar progressBar;
     CountDownTimer countDownTimer;
     List<Player> playerList;
-    DataSource dataSource;
+    double percentage;
 
 
     @Override
@@ -65,10 +65,12 @@ public class QuestionActivity extends AppCompatActivity {
         btnAnswer6 = findViewById(R.id.answer6);
 
 
+
         playerList = PlayerData.playerList;
 
         qSet = getIntent().getParcelableExtra("questionSet");
         betMoney = getIntent().getIntExtra("betMoney",0);
+        percentage = qSet.getPercentage();
 
         progressBar.setMax(qSet.getNumberOfQuestions());
         progressBar.setProgress(1);
@@ -208,17 +210,17 @@ public class QuestionActivity extends AppCompatActivity {
         countDownTimer.cancel();
         Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
         intent.putExtra("betMoney", betMoney);
-        intent.putExtra("rise", qSet.getPercentage());
+        intent.putExtra("rise", percentage);
         startActivity(intent);
     }
 
     private void buttonLooseFuncs(){
         counter=1;
-        qSet.setPercentage(-1* qSet.getPercentage());
+        percentage = -1.0 * percentage;
         countDownTimer.cancel();
         Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
         intent.putExtra("betMoney", betMoney);
-        intent.putExtra("rise", qSet.getPercentage());
+        intent.putExtra("rise", percentage);
         startActivity(intent);
     }
 

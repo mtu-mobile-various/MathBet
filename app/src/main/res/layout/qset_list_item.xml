@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tvRatio"
+        android:id="@+id/tvPlayerMoney"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -66,8 +66,8 @@
         android:text="@string/labeltime"
         android:textSize="14sp"
         app:fontFamily="@font/digital7"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvRatio"
-        app:layout_constraintStart_toEndOf="@+id/tvRatio" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvPlayerMoney"
+        app:layout_constraintStart_toEndOf="@+id/tvPlayerMoney" />
 
     <TextView
         android:id="@+id/tvLevel"

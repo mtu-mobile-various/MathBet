@@ -10,9 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
-import java.util.List;
-import java.util.zip.Inflater;
-
 import mtucar.xyz.mathbet.R;
 import mtucar.xyz.mathbet.model.QuestionSet;
 
@@ -35,7 +32,7 @@ public class QSetAdapter extends ArrayAdapter {
             convertView = mLInflater.inflate(R.layout.qset_list_item, parent, false);
         }
 
-        TextView tvRatio = convertView.findViewById(R.id.tvRatio);
+        TextView tvRatio = convertView.findViewById(R.id.tvPlayerMoney);
         TextView tvTime = convertView.findViewById(R.id.tvTime);
         TextView tvHard = convertView.findViewById(R.id.tvLevel);
 

@@ -8,12 +8,12 @@ public class Player {
 
     private int id;
     private String name;
-    private long money;
+    private double money;
     private int luckFactor;
 
     public Player(){}
 
-    public Player(int id, String name, long money, int luckFactor) {
+    public Player(int id, String name, double money, int luckFactor) {
         this.id = id;
         this.name = name;
         this.money = money;
@@ -36,11 +36,11 @@ public class Player {
         this.name = name;
     }
 
-    public long getMoney() {
+    public double getMoney() {
         return money;
     }
 
-    public void setMoney(long money) {
+    public void setMoney(double money) {
         this.money = money;
     }
 

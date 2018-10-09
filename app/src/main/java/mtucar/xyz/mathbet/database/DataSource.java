@@ -77,7 +77,7 @@ public class DataSource {
             Player player = new Player();
             player.setId(cursor.getInt(cursor.getColumnIndex(PlayerTable.COLUMN_ID)));
             player.setName(cursor.getString(cursor.getColumnIndex(PlayerTable.COLUMN_NAME)));
-            player.setMoney(cursor.getLong(cursor.getColumnIndex(PlayerTable.COLUMN_MONEY)));
+            player.setMoney(cursor.getInt(cursor.getColumnIndex(PlayerTable.COLUMN_MONEY)));
             player.setLuckFactor(cursor.getInt(cursor.getColumnIndex(PlayerTable.COLUMN_LUCK)));
             playerList.add(player);
         }
@@ -91,12 +91,12 @@ public class DataSource {
                             PlayerTable.COLUMN_ID + "=5;");
     }
 
-    public String getUserMoney(){
-        String money = "0";
+    public int getUserMoney(){
+        int money = 0;
         Cursor cursor = mDataBase.query(PlayerTable.TABLE_PLAYERS,PlayerTable.ALL_COLUMNS,
                 PlayerTable.COLUMN_ID+"=?",new String[] { "5" },null,null,null);
         while (cursor.moveToNext()) {
-            money = cursor.getString(cursor.getColumnIndex(PlayerTable.COLUMN_MONEY));
+            money = cursor.getInt(cursor.getColumnIndex(PlayerTable.COLUMN_MONEY));
         }
         cursor.close();
         return money;

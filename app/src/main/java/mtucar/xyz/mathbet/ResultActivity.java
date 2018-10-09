@@ -1,8 +1,11 @@
 package mtucar.xyz.mathbet;
 
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import mtucar.xyz.mathbet.database.DataSource;
@@ -10,7 +13,8 @@ import mtucar.xyz.mathbet.database.DataSource;
 public class ResultActivity extends AppCompatActivity {
 
     TextView finalMoney;
-    double initialMoney;
+    Button btnMenu;
+    int initialMoney;
     DataSource mDataSource;
     int betMoney;
     int finalValue;
@@ -23,23 +27,32 @@ public class ResultActivity extends AppCompatActivity {
 
         mDataSource = new DataSource(this);
         mDataSource.open();
-        initialMoney = Double.valueOf(mDataSource.getUserMoney());
+        initialMoney = mDataSource.getUserMoney();
 
 
-        betMoney = getIntent().getIntExtra("betMoney",0);
-        rise = getIntent().getIntExtra("rise",0);
-        finalValue = (int)initialMoney +betMoney;
-
+        betMoney = getIntent().getExtras().getInt("betMoney",0);
+        rise = getIntent().getExtras().getDouble("rise",0);
+        finalValue = initialMoney +betMoney;
 
 
         finalMoney = findViewById(R.id.tvFinalMoney);
-        animateTextView((int)initialMoney, finalValue, finalMoney);
-        updatePlayerMoney(rise);
+        animateTextView(initialMoney, finalValue, finalMoney);
+        mDataSource.updateMoney(rise);
+
+        btnMenu = findViewById(R.id.btnMainMenu);
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ResultActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void animateTextView(int money, int finalValue, final TextView textview) {
         ValueAnimator valueAnimator = ValueAnimator.ofInt(money, finalValue);
-        valueAnimator.setDuration(5000);
+        valueAnimator.setDuration(2000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -49,9 +62,17 @@ public class ResultActivity extends AppCompatActivity {
         valueAnimator.start();
 
     }
-    private void updatePlayerMoney(double rise){
-        mDataSource = new DataSource(this);
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mDataSource.close();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         mDataSource.open();
-        mDataSource.updateMoney(rise);
     }
 }

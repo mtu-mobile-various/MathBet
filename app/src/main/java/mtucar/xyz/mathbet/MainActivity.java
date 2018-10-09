@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonPlayer;
     Button btnOptions;
     TextView tvPlayerName;
+    TextView tvPlayerMoney;
     DataSource mDataSource;
     String name;
     List<Player> playerList = PlayerData.playerList;
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         mDataSource = new DataSource(this);
         mDataSource.open();
         mDataSource.seedDB(playerList);
+
+        tvPlayerMoney = findViewById(R.id.tvPlayerMoney);
+        tvPlayerMoney.setText(String.valueOf(mDataSource.getUserMoney()));
 
         createUserText();
 
@@ -84,4 +88,5 @@ public class MainActivity extends AppCompatActivity {
         name = preferences.getString("player_name_preference", "Player");
         tvPlayerName.setText(name);
     }
+
 }
