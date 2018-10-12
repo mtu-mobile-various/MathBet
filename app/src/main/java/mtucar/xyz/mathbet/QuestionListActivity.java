@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import mtucar.xyz.mathbet.database.DataSource;
 import mtucar.xyz.mathbet.database.QSetAdapter;
@@ -20,6 +19,7 @@ public class QuestionListActivity extends AppCompatActivity {
     SeekBar seekBar;
     TextView tvMoney;
     TextView tvBetMoney;
+    TextView tvPlayerMoney;
     ListView listView;
     int userMoney;
     int betMoney;
@@ -34,12 +34,15 @@ public class QuestionListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_list);
 
-        tvBetMoney = findViewById(R.id.tvUserMoney);
+        tvBetMoney = findViewById(R.id.tvPriceMoney);
 
         //Get the user initialMoney from Database
         mDataSource = new DataSource(this);
         userMoney = mDataSource.getUserMoney();
 
+        //show player money
+        tvPlayerMoney = findViewById(R.id.tvPlayerMoney);
+        tvPlayerMoney.setText(String.valueOf(mDataSource.getUserMoney()));
 
         //seekBar to change the amount of the initialMoney
         tvMoney = findViewById(R.id.tvPercentage);

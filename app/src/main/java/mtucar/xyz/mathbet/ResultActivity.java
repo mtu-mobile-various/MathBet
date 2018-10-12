@@ -13,12 +13,14 @@ import mtucar.xyz.mathbet.database.DataSource;
 public class ResultActivity extends AppCompatActivity {
 
     TextView finalMoney;
+    TextView tvLabel;
     Button btnMenu;
     int initialMoney;
     DataSource mDataSource;
     int betMoney;
     int finalValue;
-    double rise;
+    String result;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +33,17 @@ public class ResultActivity extends AppCompatActivity {
 
 
         betMoney = getIntent().getExtras().getInt("betMoney",0);
-        rise = getIntent().getExtras().getDouble("rise",0);
-        finalValue = initialMoney +betMoney;
+        result = getIntent().getExtras().getString("result","");
+
+        tvLabel = findViewById(R.id.tv_label_result);
+        tvLabel.setText(result);
+
+        finalValue = initialMoney + betMoney;
 
 
         finalMoney = findViewById(R.id.tvFinalMoney);
         animateTextView(initialMoney, finalValue, finalMoney);
-        mDataSource.updateMoney(rise);
+        mDataSource.updateMoney(betMoney);
 
         btnMenu = findViewById(R.id.btnMainMenu);
         btnMenu.setOnClickListener(new View.OnClickListener() {

@@ -44,6 +44,7 @@ public class QuestionActivity extends AppCompatActivity {
     CountDownTimer countDownTimer;
     List<Player> playerList;
     double percentage;
+    String result;
 
 
     @Override
@@ -70,7 +71,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         qSet = getIntent().getParcelableExtra("questionSet");
         betMoney = getIntent().getIntExtra("betMoney",0);
-        percentage = qSet.getPercentage();
+//        percentage = qSet.getPercentage();
 
         progressBar.setMax(qSet.getNumberOfQuestions());
         progressBar.setProgress(1);
@@ -205,22 +206,24 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void buttonWinFuncs(){
+        result = "You Win!";
         Toast.makeText(QuestionActivity.this, "Well Done!", Toast.LENGTH_LONG).show();
         counter=1;
         countDownTimer.cancel();
         Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
         intent.putExtra("betMoney", betMoney);
-        intent.putExtra("rise", percentage);
+        intent.putExtra("result", result);
         startActivity(intent);
     }
 
     private void buttonLooseFuncs(){
+        result = "You Loose!";
         counter=1;
-        percentage = -1.0 * percentage;
+        betMoney = -1 * betMoney;
         countDownTimer.cancel();
         Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
         intent.putExtra("betMoney", betMoney);
-        intent.putExtra("rise", percentage);
+        intent.putExtra("result", result);
         startActivity(intent);
     }
 
