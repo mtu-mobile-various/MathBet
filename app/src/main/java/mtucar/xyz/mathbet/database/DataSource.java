@@ -90,6 +90,12 @@ public class DataSource {
                             PlayerTable.COLUMN_ID + "=5;");
     }
 
+    public void changeName(String newName){
+        mDataBase.execSQL("UPDATE " + PlayerTable.TABLE_PLAYERS +
+                " SET " + PlayerTable.COLUMN_NAME + " = '" + newName +"' WHERE " +
+                PlayerTable.COLUMN_ID + "=5;");
+    }
+
     public int getUserMoney(){
         int money = 0;
         Cursor cursor = mDataBase.query(PlayerTable.TABLE_PLAYERS,PlayerTable.ALL_COLUMNS,

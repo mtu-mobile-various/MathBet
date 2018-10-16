@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         mDataSource.seedDB(playerList);
 
         tvPlayerMoney = findViewById(R.id.tvPlayerMoney);
-        tvPlayerMoney.setText(String.valueOf(mDataSource.getUserMoney()));
+        tvPlayerMoney.setText("$"+String.valueOf(mDataSource.getUserMoney()));
 
         createUserText();
 

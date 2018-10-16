@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -17,9 +18,10 @@ import mtucar.xyz.mathbet.model.QuestionSet;
 public class QuestionListActivity extends AppCompatActivity {
 
     SeekBar seekBar;
-    TextView tvMoney;
+    TextView tvPercentage;
     TextView tvBetMoney;
     TextView tvPlayerMoney;
+    ImageButton btnRefresh;
     ListView listView;
     int userMoney;
     int betMoney;
@@ -42,10 +44,10 @@ public class QuestionListActivity extends AppCompatActivity {
 
         //show player money
         tvPlayerMoney = findViewById(R.id.tvPlayerMoney);
-        tvPlayerMoney.setText(String.valueOf(mDataSource.getUserMoney()));
+        tvPlayerMoney.setText("$"+String.valueOf(mDataSource.getUserMoney()));
 
         //seekBar to change the amount of the initialMoney
-        tvMoney = findViewById(R.id.tvPercentage);
+        tvPercentage = findViewById(R.id.tvPercentage);
         seekBar = findViewById(R.id.seekBar);
         betMoney = (int) (userMoney * 0.5);
 
@@ -53,7 +55,7 @@ public class QuestionListActivity extends AppCompatActivity {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                tvMoney.setText(String.valueOf(progress));
+                tvPercentage.setText("%"+String.valueOf(progress));
                 seekBarProgress = progress;
                 betMoney = userMoney * progress / 100;
             }
@@ -70,15 +72,16 @@ public class QuestionListActivity extends AppCompatActivity {
         });
 
         listView = findViewById(R.id.question_list);
-        questionSet = new QuestionSet[numberOfQuestionSet];
-        for(int i=0; i<numberOfQuestionSet; ++i)
-            questionSet[i] = new QuestionSet();
+        createBetList();
 
-        QSetAdapter qSetAdapter = new QSetAdapter(this, questionSet);
-        listView.setAdapter(qSetAdapter);
+        btnRefresh = findViewById(R.id.btnRefresh);
+        btnRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createBetList();
+            }
+        });
 
-        listView.setOnItemLongClickListener(itemLongClickListener);
-        listView.setOnItemClickListener(itemClickListener);
     }
 
     private AdapterView.OnItemLongClickListener itemLongClickListener = new AdapterView.OnItemLongClickListener() {
@@ -101,9 +104,21 @@ public class QuestionListActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             QuestionSet object = (QuestionSet) listView.getItemAtPosition(position);
             betFinalMoney = Integer.valueOf((int) (object.getPercentage()* betMoney));
-            tvBetMoney.setText(String.valueOf(betFinalMoney));
+            tvBetMoney.setText("You can Get: $"+String.valueOf(betFinalMoney));
         }
     };
+
+    private void createBetList(){
+        questionSet = new QuestionSet[numberOfQuestionSet];
+        for(int i=0; i<numberOfQuestionSet; ++i)
+            questionSet[i] = new QuestionSet();
+
+        QSetAdapter qSetAdapter = new QSetAdapter(this, questionSet);
+        listView.setAdapter(qSetAdapter);
+
+        listView.setOnItemLongClickListener(itemLongClickListener);
+        listView.setOnItemClickListener(itemClickListener);
+    }
 
     @Override
     protected void onPause() {

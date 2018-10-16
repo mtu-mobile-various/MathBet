@@ -15,7 +15,7 @@
     <string name="labelratio">Ratio:</string>
     <string name="labeltime">Time:</string>
     <string name="labelhard">Level:</string>
-    <string name="betmoney">I want to Risk:</string>
+    <string name="betmoney">Risk(%)of \nYour Money:</string>
     <string name="percentage">%50</string>
     <string name="result">You Win!</string>
     <string name="yourmoney">Your Money:</string>
@@ -25,6 +25,7 @@
     <string name="player_name_preference">player_name_preference</string>
     <string name="title_activity_settings">Settings</string>
     <string name="mainmenu">Menu</string>
+    <string name="betList">Available Bets</string>
 
 
 
