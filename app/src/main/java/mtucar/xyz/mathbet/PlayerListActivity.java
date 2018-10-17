@@ -18,7 +18,8 @@ public class PlayerListActivity extends AppCompatActivity {
     ListView listView;
     List<Player> playerList;
     DataSource mDataSource;
-    String newName;
+    PlayerAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +28,15 @@ public class PlayerListActivity extends AppCompatActivity {
 
         mDataSource = new DataSource(this);
         playerList = mDataSource.getAllPlayers();
-
-        SharedPreferences userDetails = getSharedPreferences("mtucar.xyz.mathbet_preferences", MODE_PRIVATE);
-        newName = userDetails.getString("player_name_preference","Player");
-        mDataSource.changeName(newName);
-
-        setName();
-    }
-
-
-    private void setName(){
         listView = findViewById(R.id.list_view_player);
-        PlayerAdapter adapter = new PlayerAdapter(this, playerList);
+
+
+        adapter = new PlayerAdapter(this, playerList);
         listView.setAdapter(adapter);
-    }
+}
+
+
+
 
     @Override
     protected void onPause() {
@@ -51,7 +47,6 @@ public class PlayerListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setName();
         mDataSource.open();
     }
 }

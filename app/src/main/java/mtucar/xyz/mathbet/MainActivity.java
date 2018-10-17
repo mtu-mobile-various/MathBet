@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         tvPlayerMoney.setText("$"+String.valueOf(mDataSource.getUserMoney()));
 
         createUserText();
+        checkName();
 
         buttonBet = findViewById(R.id.buttonBet);
         buttonBet.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -79,14 +81,20 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         mDataSource.open();
 
+        SharedPreferences userDetails = getSharedPreferences("mtucar.xyz.mathbet_preferences", MODE_PRIVATE);
+        mDataSource.changeName(userDetails.getString("player_name_preference","Player"));
         createUserText();
     }
 
     private void createUserText(){
         tvPlayerName = findViewById(R.id.tvUserName);
+        checkName();
+        tvPlayerName.setText(name);
+    }
+
+    private void checkName(){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         name = preferences.getString("player_name_preference", "Player");
-        tvPlayerName.setText(name);
     }
 
 }
