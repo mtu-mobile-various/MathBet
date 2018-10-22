@@ -12,10 +12,10 @@
     <string name="time">30</string>
     <string name="hard">Hard</string>
     <string name="betratio">%0.8</string>
-    <string name="labelratio">Ratio:</string>
-    <string name="labeltime">Time:</string>
-    <string name="labelhard">Level:</string>
-    <string name="betmoney">Risk(%)of \nYour Money:</string>
+    <string name="labelratio">Ratio</string>
+    <string name="labeltime">Time(sec)</string>
+    <string name="labelhard">Level</string>
+    <string name="betmoney">Risk(%):</string>
     <string name="percentage">%50</string>
     <string name="result">You Win!</string>
     <string name="yourmoney">Your Money:</string>

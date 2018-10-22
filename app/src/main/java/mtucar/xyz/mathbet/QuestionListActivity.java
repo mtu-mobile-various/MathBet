@@ -104,7 +104,7 @@ public class QuestionListActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             QuestionSet object = (QuestionSet) listView.getItemAtPosition(position);
             betFinalMoney = Integer.valueOf((int) (object.getPercentage()* betMoney));
-            tvBetMoney.setText("You can Get: $"+String.valueOf(betFinalMoney));
+            tvBetMoney.setText("You Get: $"+String.valueOf(betFinalMoney));
         }
     };
 
