@@ -62,7 +62,7 @@ public class ResultActivity extends AppCompatActivity {
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                textview.setText(valueAnimator.getAnimatedValue().toString());
+                textview.setText("$"+valueAnimator.getAnimatedValue().toString());
             }
         });
         valueAnimator.start();

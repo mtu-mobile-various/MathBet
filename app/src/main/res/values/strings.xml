@@ -27,11 +27,7 @@
     <string name="mainmenu">Menu</string>
     <string name="betList">Available Bets</string>
     <string name="refresh">Refresh Button</string>
-
-
-
-
-
-
+    <string name="labelName">Name</string>
+    <string name="labelMoney">Money</string>
 
 </resources>

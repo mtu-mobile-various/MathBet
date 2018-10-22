@@ -29,7 +29,7 @@
         android:layout_marginStart="16dp"
         android:ems="10"
         app:fontFamily="@font/digital7"
-        android:gravity="start"
+        android:gravity="end"
         android:text="@string/number"
         android:textSize="50sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/calculationSign"
