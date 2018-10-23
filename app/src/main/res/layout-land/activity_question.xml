@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".QuestionActivity"
+    android:background="@drawable/background"
     tools:layout_editor_absoluteY="81dp">
 
     <TextView
@@ -90,6 +91,7 @@
         android:minWidth="120dp"
         android:text="@string/number"
         android:textSize="50sp"
+        android:background="@drawable/buttonshape"
         app:layout_constraintStart_toEndOf="@+id/secondNumber"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,6 +105,7 @@
         android:minWidth="120dp"
         android:text="@string/number"
         android:textSize="50sp"
+        android:background="@drawable/buttonshape"
         app:layout_constraintBaseline_toBaselineOf="@+id/answer1"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -115,6 +118,7 @@
         android:text="@string/number"
         android:textSize="50sp"
         app:fontFamily="@font/digital7"
+        android:background="@drawable/buttonshape"
         app:layout_constraintEnd_toEndOf="@+id/answer1"
         app:layout_constraintTop_toBottomOf="@+id/answer1" />
 
@@ -126,6 +130,7 @@
         android:minWidth="120dp"
         android:text="@string/number"
         android:textSize="50sp"
+        android:background="@drawable/buttonshape"
         app:layout_constraintBaseline_toBaselineOf="@+id/answer3"
         app:layout_constraintStart_toStartOf="@+id/answer2" />
 
@@ -137,6 +142,7 @@
         android:minWidth="120dp"
         android:text="@string/number"
         android:textSize="50sp"
+        android:background="@drawable/buttonshape"
         app:fontFamily="@font/digital7"
         app:layout_constraintEnd_toEndOf="@+id/answer3"
         app:layout_constraintTop_toBottomOf="@+id/answer3" />
@@ -148,6 +154,7 @@
         android:minWidth="120dp"
         android:text="@string/number"
         android:textSize="50sp"
+        android:background="@drawable/buttonshape"
         app:fontFamily="@font/digital7"
         app:layout_constraintBaseline_toBaselineOf="@+id/answer5"
         app:layout_constraintStart_toStartOf="@+id/answer4" />

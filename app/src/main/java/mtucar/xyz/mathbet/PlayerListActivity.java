@@ -35,9 +35,6 @@ public class PlayerListActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 }
 
-
-
-
     @Override
     protected void onPause() {
         super.onPause();

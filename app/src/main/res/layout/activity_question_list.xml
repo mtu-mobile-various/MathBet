@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".QuestionListActivity">
 
     <TextView
@@ -24,6 +25,10 @@
         android:id="@+id/question_list"
         android:layout_width="match_parent"
         android:layout_height="246dp"
+        android:background="@drawable/listshape"
+        android:layout_gravity="center"
+        android:dividerHeight="10sp"
+        android:paddingTop="20sp"
         app:layout_constraintBottom_toTopOf="@+id/btnRefresh"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

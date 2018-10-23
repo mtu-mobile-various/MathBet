@@ -17,7 +17,8 @@
         android:textStyle="bold"
         app:fontFamily="@font/digital7"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="237dp" />
+        tools:layout_editor_absoluteY="237dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvTime"
@@ -33,7 +34,8 @@
         app:fontFamily="@font/digital7"
         app:layout_constraintEnd_toStartOf="@+id/tvLevel"
         app:layout_constraintStart_toEndOf="@+id/tvPlayerMoney"
-        tools:layout_editor_absoluteY="237dp" />
+        tools:layout_editor_absoluteY="237dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvLevel"
@@ -46,5 +48,6 @@
         android:textStyle="bold"
         app:fontFamily="@font/digital7"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="237dp" />
+        tools:layout_editor_absoluteY="237dp"
+        tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

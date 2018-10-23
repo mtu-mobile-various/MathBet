@@ -35,7 +35,8 @@ public class PlayerAdapter extends ArrayAdapter {
         TextView tvMoney = convertView.findViewById(R.id.tvPlayerMoney);
         Player player = mPlayerList.get(position);
 
-        tvName.setText(player.getName());
+        int pos = position+1;
+        tvName.setText(pos+"-"+player.getName());
         tvMoney.setText(String.valueOf(player.getMoney()));
 
         return convertView;
