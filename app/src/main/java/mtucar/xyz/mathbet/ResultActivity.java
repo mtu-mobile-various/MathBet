@@ -22,6 +22,7 @@ public class ResultActivity extends AppCompatActivity {
     String result;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,8 @@ public class ResultActivity extends AppCompatActivity {
         animateTextView(initialMoney, finalValue, finalMoney);
         mDataSource.updateMoney(betMoney);
 
+
+
         btnMenu = findViewById(R.id.btnMainMenu);
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +58,7 @@ public class ResultActivity extends AppCompatActivity {
         });
 
     }
+
 
     public void animateTextView(int money, int finalValue, final TextView textview) {
         ValueAnimator valueAnimator = ValueAnimator.ofInt(money, finalValue);

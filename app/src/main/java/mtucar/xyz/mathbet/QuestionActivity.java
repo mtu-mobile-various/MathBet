@@ -2,6 +2,7 @@ package mtucar.xyz.mathbet;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -87,6 +88,7 @@ public class QuestionActivity extends AppCompatActivity {
 
             public void onFinish() {
                 Toast.makeText(QuestionActivity.this, "Time is up!", Toast.LENGTH_SHORT).show();
+                buttonLooseFuncs();
             }
         }.start();
 
@@ -221,13 +223,17 @@ public class QuestionActivity extends AppCompatActivity {
         counter=1;
         betMoney = -1 * betMoney;
         countDownTimer.cancel();
-        Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
-        intent.putExtra("betMoney", betMoney);
-        intent.putExtra("result", result);
-        startActivity(intent);
+        Toast.makeText(this, "Wrong Answer!", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
+                intent.putExtra("betMoney", betMoney);
+                intent.putExtra("result", result);
+                startActivity(intent);
+            }
+        },3000);
     }
-
-
 }
 
 
