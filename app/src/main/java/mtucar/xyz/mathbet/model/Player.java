@@ -1,23 +1,24 @@
 package mtucar.xyz.mathbet.model;
 
 import android.content.ContentValues;
+import android.support.annotation.NonNull;
 
 import mtucar.xyz.mathbet.database.PlayerTable;
 
-public class Player {
+public class Player implements Comparable<Player> {
 
     private int id;
     private String name;
-    private double money;
-    private int luckFactor;
+    private int money;
+
 
     public Player(){}
 
-    public Player(int id, String name, double money, int luckFactor) {
+    public Player(int id, String name, int money) {
         this.id = id;
         this.name = name;
         this.money = money;
-        this.luckFactor = luckFactor;
+
     }
 
     public int getId(){
@@ -36,21 +37,15 @@ public class Player {
         this.name = name;
     }
 
-    public double getMoney() {
+    public int getMoney() {
         return money;
     }
 
-    public void setMoney(double money) {
+    public void setMoney(int money) {
         this.money = money;
     }
 
-    public double getLuckFactor() {
-        return luckFactor;
-    }
 
-    public void setLuckFactor(int luckFactor) {
-        this.luckFactor = luckFactor;
-    }
 
 
     /*
@@ -60,20 +55,24 @@ public class Player {
     @return ContentValues
      */
     public ContentValues toValues(){
-        ContentValues values = new ContentValues(4);
+        ContentValues values = new ContentValues(3);
 
         values.put(PlayerTable.COLUMN_ID, id);
         values.put(PlayerTable.COLUMN_NAME, name);
         values.put(PlayerTable.COLUMN_MONEY, money);
-        values.put(PlayerTable.COLUMN_LUCK, luckFactor);
         return values;
     }
     @Override
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
-                ", money=" + money +
-                ", luckFactor=" + luckFactor +
-                '}';
+                ", money=" + money + '}';
+    }
+
+    @Override
+    public int compareTo(@NonNull Player o) {
+        int otherMoney = o.getMoney();
+
+        return otherMoney - this.money;
     }
 }

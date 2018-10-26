@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.Collections;
 import java.util.List;
 
 import mtucar.xyz.mathbet.database.PlayerAdapter;
@@ -28,6 +29,7 @@ public class PlayerListActivity extends AppCompatActivity {
 
         mDataSource = new DataSource(this);
         playerList = mDataSource.getAllPlayers();
+        Collections.sort(playerList);
         listView = findViewById(R.id.list_view_player);
 
 

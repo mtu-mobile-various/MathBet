@@ -78,7 +78,6 @@ public class DataSource {
             player.setId(cursor.getInt(cursor.getColumnIndex(PlayerTable.COLUMN_ID)));
             player.setName(cursor.getString(cursor.getColumnIndex(PlayerTable.COLUMN_NAME)));
             player.setMoney(cursor.getInt(cursor.getColumnIndex(PlayerTable.COLUMN_MONEY)));
-            player.setLuckFactor(cursor.getInt(cursor.getColumnIndex(PlayerTable.COLUMN_LUCK)));
             playerList.add(player);
         }
         return playerList;

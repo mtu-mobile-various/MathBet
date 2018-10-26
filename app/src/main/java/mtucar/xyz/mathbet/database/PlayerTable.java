@@ -5,10 +5,10 @@ public class PlayerTable {
     public static final String COLUMN_ID = "playerId";
     public static final String COLUMN_NAME = "playerName";
     public static final String COLUMN_MONEY = "playerMoney";
-    public static final String COLUMN_LUCK = "playerLuck";
+
 
     public static final String[] ALL_COLUMNS =
-            {COLUMN_ID, COLUMN_NAME, COLUMN_MONEY, COLUMN_LUCK};
+            {COLUMN_ID, COLUMN_NAME, COLUMN_MONEY};
 
     /*
     The string for creating SQL DAtabase
@@ -17,8 +17,7 @@ public class PlayerTable {
             "CREATE TABLE " + TABLE_PLAYERS + "(" +
                     COLUMN_ID + " TEXT PRIMARY KEY, "+
                     COLUMN_NAME + " TEXT, "+
-                    COLUMN_MONEY + " INTEGER, "+
-                    COLUMN_LUCK + " INTEGER" + ");";
+                    COLUMN_MONEY + " INTEGER"+ ");";
 
     public static final String SQL_DELETE =
             "DROP TABLE " + TABLE_PLAYERS;
