@@ -23,12 +23,12 @@
 
     <ListView
         android:id="@+id/question_list"
-        android:layout_width="match_parent"
-        android:layout_height="246dp"
-        android:background="@drawable/listshape"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="center"
+        android:background="@drawable/listshape"
         android:dividerHeight="10sp"
-        android:paddingTop="20sp"
+        android:paddingTop="10sp"
         app:layout_constraintBottom_toTopOf="@+id/btnRefresh"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -70,12 +70,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/percentage"
         android:textSize="24sp"
         android:textStyle="bold"
         app:fontFamily="@font/digital7"
-        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
@@ -99,24 +99,43 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="71dp"
+        android:layout_width="131dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="4dp"
-        android:gravity="end"
+        android:gravity="center"
         android:text="@string/labeltime"
         android:textSize="14sp"
         android:textStyle="bold"
         app:fontFamily="@font/digital7"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toStartOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/betList"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/digital7"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/tvPercentage" />
 
     <TextView
         android:id="@+id/textView5"
@@ -148,18 +167,20 @@
         android:id="@+id/view2"
         android:layout_width="fill_parent"
         android:layout_height="4dp"
+        android:layout_marginTop="8dp"
         android:background="#D3D3D3"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPercentage" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
     <View
         android:id="@+id/view"
         android:layout_width="fill_parent"
         android:layout_height="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:background="#D3D3D3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -170,11 +191,31 @@
         android:id="@+id/btnRefresh"
         android:layout_width="wrap_content"
         android:layout_height="44dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginLeft="79dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginRight="63dp"
+        android:layout_marginBottom="16dp"
         android:contentDescription="@string/refresh"
         app:layout_constraintBottom_toTopOf="@+id/tvPriceMoney"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnInfo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question_list"
         app:srcCompat="@drawable/ic_sync_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/btnInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginLeft="63dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginRight="74dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvPriceMoney"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnRefresh"
+        app:layout_constraintTop_toTopOf="@+id/btnRefresh"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
 
 </android.support.constraint.ConstraintLayout>

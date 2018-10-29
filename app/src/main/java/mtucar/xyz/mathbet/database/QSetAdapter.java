@@ -39,7 +39,7 @@ public class QSetAdapter extends ArrayAdapter {
         QuestionSet qSet = mQSet[position];
 
         tvRatio.setText(String.format("%.3f", qSet.getPercentage()));
-        tvTime.setText(String.valueOf(qSet.getTime()));
+        tvTime.setText(qSet.getNumberOfQuestions()+"/"+qSet.getTime());
         if(qSet.isHard()){
             tvHard.setText("Hard");}
             else tvHard.setText("Easy");

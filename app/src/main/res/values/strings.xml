@@ -13,7 +13,7 @@
     <string name="hard">Hard</string>
     <string name="betratio">%0.8</string>
     <string name="labelratio">Ratio</string>
-    <string name="labeltime">Time(sec)</string>
+    <string name="labeltime">Questions/sec</string>
     <string name="labelhard">Level</string>
     <string name="betmoney">Risk(%):</string>
     <string name="percentage">%50</string>

@@ -1,7 +1,9 @@
 package mtucar.xyz.mathbet;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Parcelable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +24,7 @@ public class QuestionListActivity extends AppCompatActivity {
     TextView tvBetMoney;
     TextView tvPlayerMoney;
     ImageButton btnRefresh;
+    ImageButton btnInfo;
     ListView listView;
     int userMoney;
     int betMoney;
@@ -79,6 +82,26 @@ public class QuestionListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 createBetList();
+            }
+        });
+
+        btnInfo = findViewById(R.id.btnInfo);
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(QuestionListActivity.this);
+                builder.setTitle("Screen Info");
+                builder.setMessage("At the top of the screen choose how much money do you want to risk.\n" + "\n"+
+                        "Tap one of the available bets to see how much money you can win/loose.\n" + "\n"+
+                        "Long click the game you want to play.\n" + "\n"+
+                        "You can refresh the available games by pressing refresh button.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
             }
         });
 
