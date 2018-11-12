@@ -24,7 +24,11 @@ public class MainActivity extends AppCompatActivity {
     TextView tvPlayerMoney;
     DataSource mDataSource;
     String name;
+    SharedPreferences preferences;
     List<Player> playerList = PlayerData.playerList;
+    public static final String PREFERENCES = "mtucar.xyz.mathbet_preferences";
+    public static final String NAME = "player_name_preference";
+    public static final String COUNTER = "counter";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         createUserText();
         checkName();
+        initializeCounter();
 
         buttonBet = findViewById(R.id.buttonBet);
         buttonBet.setOnClickListener(new View.OnClickListener() {
@@ -81,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         mDataSource.open();
 
-        SharedPreferences userDetails = getSharedPreferences("mtucar.xyz.mathbet_preferences", MODE_PRIVATE);
-        mDataSource.changeName(userDetails.getString("player_name_preference","Player"));
+        preferences = getSharedPreferences(PREFERENCES, MODE_PRIVATE);
+        mDataSource.changeName(preferences.getString(NAME,"Player"));
         createUserText();
     }
 
@@ -93,8 +98,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkName(){
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        name = preferences.getString("player_name_preference", "Player");
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        name = preferences.getString(NAME, "Player");
     }
+
+    private void initializeCounter(){
+        preferences = getSharedPreferences(MainActivity.PREFERENCES,MODE_PRIVATE);
+        if(!preferences.contains(COUNTER)) {
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt(COUNTER, 0);
+            editor.commit();
+        }
+    }
+
 
 }

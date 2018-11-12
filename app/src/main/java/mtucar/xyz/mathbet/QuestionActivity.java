@@ -46,6 +46,8 @@ public class QuestionActivity extends AppCompatActivity {
     List<Player> playerList;
     double percentage;
     String result;
+    public static final String WINMESSAGE = "Well Done!";
+    public static final String LOOSEMESSAGE = "You Loose!";
 
 
     @Override
@@ -208,7 +210,7 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void buttonWinFuncs(){
-        result = "You Win!";
+        result = WINMESSAGE;
         Toast.makeText(QuestionActivity.this, "Well Done!", Toast.LENGTH_LONG).show();
         counter=1;
         countDownTimer.cancel();
@@ -219,7 +221,7 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void buttonLooseFuncs(){
-        result = "You Loose!";
+        result = LOOSEMESSAGE;
         counter=1;
         betMoney = -1 * betMoney;
         countDownTimer.cancel();

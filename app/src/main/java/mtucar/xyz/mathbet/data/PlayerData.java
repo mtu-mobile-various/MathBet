@@ -35,8 +35,6 @@ public class PlayerData {
         addPlayer(new Player(18,"Celine Diom", 1000 ));
         addPlayer(new Player(19,"Freud", 1000 ));
         addPlayer(new Player(20,"Mari Curie", 1000 ));
-
-
     }
 
     private static void addPlayer(Player player) {
