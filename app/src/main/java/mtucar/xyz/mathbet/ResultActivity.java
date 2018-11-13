@@ -80,9 +80,7 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
         valueAnimator.start();
-
     }
-
 
     @Override
     protected void onPause() {
